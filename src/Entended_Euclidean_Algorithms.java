@@ -21,17 +21,17 @@ public class Entended_Euclidean_Algorithms {
             System.out.println("exit" + a + " " + b);
             return new int[]{1, 0};
         }
-        int[] temp = getInverse(b, a % b);
-        System.out.println(a + " " + b + " " + temp[0] + " " + temp[1]);
-        return new int[]{temp[1], temp[0] - (a / b) * temp[1]};
+        int[] res = getInverse(b, a % b);
+        System.out.println(a + " " + b + " " + res[0] + " " + res[1]);
+        return new int[]{res[1], res[0] - (a / b) * res[1]};
     }
 
 
-    public  static long[] getInvArray(int n, int p){
+    public  static long[] getInvArray(int n, int mod){
         long[] inv = new long[n + 1];
         inv[1] = 1;
         for (int i = 2; i <= n; i++) {
-            inv[i] = (p - p / i) * inv[p % i] % p;
+            inv[i] = (mod - mod / i) * inv[mod % i] % mod;
         }
 
         return inv;
